@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projekt</title>
+    <link href="styles/normalize.css" rel="stylesheet" />
+    <link href="styles/global.css" rel="stylesheet" />
+    <link href="styles/form.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;1,400&family=Montserrat:ital,wght@0,400;0,500;1,400&family=Pacifico&family=Ysabeau+Infant:wght@400;700&display=swap"
+        rel="stylesheet">
+    <script src="scripts/script.js" defer></script>
+  </head>
+  
+  
+  <body>
+    <div id="formPage">
+      <p>
+        <button id="backToList" class="btn form__button">Powrót do wyboru</button>
+      </p>
+      
+      <form id="customerForm" autocomplete="off">
+        <fieldset class="form_fieldset">
+          <legend class="form__legend">Wybierz płatność</legend>
+          <ul>
+            <li class="form_li">
+              <label>
+                <input
+                class="form_input"
+                  type="radio"
+                  name="payment"
+                  value="transfer"
+                />Przelew
+              </label>
+            </li>
+            <li class="form_li">
+              <label>
+                <input class="form_input" type="radio" name="payment" value="cash" />Gotówka
+              </label>
+            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset class="form_fieldset">
+          <legend class="form__legend">Dane osobowe</legend>
+          <p>
+            <label>
+              <span class="form__labelText"> Imię i nazwisko: </span>
+              <input id="fullName" class="form__field" type="text" pattern="^(\w\w+)\s(\w+)$" oninvalid="this.setCustomValidity('Uzupełnij w formacie Imię Nazwisko')" oninput="this.setCustomValidity('')" required />
+              <p id="nameValidationMessage"></p>
+            </label>
+          </p>
+        </fieldset>
+
+        <fieldset class="form_fieldset">
+          <legend class="form__legend">Data odbioru</legend>
+          <p>
+            <span class="form__labelText"> Data odbioru: </span
+            ><input id="date" class="form__field" type="date" required/>
+            <p id="dateValidationMessage"></p>
+          </p>
+        </fieldset>
+
+        <fieldset class="form_fieldset">
+          <legend class="form__legend">Wybierz akcesoria</legend>
+          <ul>
+            <li class="form_li">
+              <label>
+                <input
+                class="form_input"
+                  id="0"
+                  type="checkbox"
+                  name="accesories"
+                  value="oponyLetnie"
+                />Opony letnie - 1600 zł
+              </label>
+            </li>
+            <li class="form_li">
+              <label>
+                <input
+                class="form_input"
+                  id="1"
+                  type="checkbox"
+                  name="accesories"
+                  value="oponyZimowe"
+                />Opony zimowe - 1600 zł
+              </label>
+            </li>
+            <li class="form_li">
+              <label>
+                <input
+                class="form_input"
+                  id="2"
+                  type="checkbox"
+                  name="accesories"
+                  value="dywaniki"
+                />Dywaniki - 500 zł
+              </label>
+            </li>
+            <li class="form_li">
+              <label>
+                <input
+                class="form_input"
+                  id="3"
+                  type="checkbox"
+                  name="accesories"
+                  value="klima"
+                />Czyszczenie klimatyzacji i wymiana filtrów - 2000 zł
+              </label>
+            </li>
+          </ul>
+        </fieldset>
+
+        <fieldset class="form_fieldset">
+          <legend class="form__legend">Do zapłaty</legend>
+          <p class="form_price"><span id="total"></span> PLN</p>
+        </fieldset>
+        <input type="submit" value="Zakup" class="form__button">
+      </form>
+    </div>
+  </body>
+</html>
